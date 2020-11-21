@@ -62,7 +62,7 @@ if __name__ == "__main__":
     last_solution_fitness = fitness_score
     last_solution = initial_solution
 
-    # mutation and selection based on Monte-Carlo Search algorithm
+    # mutation and neighbour selection based on Monte-Carlo Search algorithm
     for i in range(0, max_iterations):
         print("-------------------------------------------")
         current_solution = mutate(last_solution)
