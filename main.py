@@ -5,10 +5,10 @@ import random
 def calculate_bin_weight(solution):
     itemWeight = {
         1: 15,
-        2: 2,
-        3: 10,
-        4: 20,
-        5: 5
+        2: 10,
+        3: 12,
+        4: 3,
+        5: 10
     }
     bins = [0, 0]
     for i in range(0, 5):
@@ -61,6 +61,8 @@ if __name__ == "__main__":
 
     last_solution_fitness = fitness_score
     last_solution = initial_solution
+    best_solution = initial_solution
+    best_solution_fitness = fitness_score
 
     # mutation and neighbour selection based on Monte-Carlo Search algorithm
     for i in range(0, max_iterations):
@@ -72,13 +74,20 @@ if __name__ == "__main__":
         if current_fitness >= last_solution_fitness:
             last_solution = current_solution
             last_solution_fitness = current_fitness
+            best_solution = last_solution
+            best_solution_fitness = last_solution_fitness
         else:
             rand = random.randint(0, 100)
             if rand <= probability * 100:
                 last_solution = current_solution
                 last_solution_fitness = current_fitness
 
-        print("\nSelected solution:\n" + str(last_solution))
+        print("\nLast solution:\n" + str(last_solution))
 
         print("Fitness score: " + str(last_solution_fitness))
+        print("-------------------------------------------")
+
+        print("\nBest solution:\n" + str(best_solution))
+
+        print("Best solution score:\n " + str(best_solution_fitness))
         print("-------------------------------------------")
